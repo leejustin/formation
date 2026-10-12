@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0b10" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="icon" href="./icon.svg" />
+    <title>Formation</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // surface fatal startup errors on screen (helps debugging inside native shells)
+      (function () {
+        function show(msg) {
+          var el = document.getElementById('boot-err') || document.body.appendChild(Object.assign(document.createElement('pre'), { id: 'boot-err' }));
+          el.style.cssText = 'position:fixed;left:8px;right:8px;top:60px;z-index:9999;color:#ff6b6b;background:#000c;padding:10px;font-size:11px;white-space:pre-wrap;border-radius:8px';
+          el.textContent += msg + '\n';
+        }
+        window.addEventListener('error', function (e) { show('Error: ' + e.message + ' @ ' + (e.filename || '') + ':' + e.lineno); });
+        window.addEventListener('unhandledrejection', function (e) { show('Promise: ' + (e.reason && (e.reason.stack || e.reason.message) || e.reason)); });
+      })();
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

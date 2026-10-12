@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Formation</string>
+    <string name="title_activity_main">Formation</string>
+    <string name="package_name">com.dinksf.formation</string>
+    <string name="custom_url_scheme">com.dinksf.formation</string>
+</resources>
